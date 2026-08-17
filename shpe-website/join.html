@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join — SHPE @ SWC</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot"></span>SHPE @ SWC</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰ Menu</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="officers.html">Officers</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </div>
+</header>
+
+<section class="center">
+  <div class="wrap">
+    <span class="eyebrow">get on the list</span>
+    <h1>Join the Canvas</h1>
+    <p class="lede" style="margin:0 auto;">Drop your name and school email below
+      and we'll add you to our Canvas course, that's where we post announcements,
+      resources, and reminders so you never miss a meeting.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap form-card card">
+
+    <!--
+      SIGN UP FORM — two options, pick one:
+
+      OPTION A (easiest, no code): delete everything between the <form> tags
+      below and instead paste a Google Form embed <iframe> here. Google Forms
+      lets you collect First Name / Last Name / School Email and dumps
+      results into a Google Sheet automatically. Send > Embed HTML in the
+      Google Form editor to get the iframe code.
+
+      OPTION B (keep this custom-styled form): keep the form below, and set
+      the action="" to a Formspree endpoint (formspree.io, free tier) so
+      submissions get emailed to you without needing a backend server.
+    -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="fname">First name</label>
+      <input type="text" id="fname" name="firstName" required>
+
+      <label for="lname">Last name</label>
+      <input type="text" id="lname" name="lastName" required>
+
+      <label for="email">School email</label>
+      <input type="email" id="email" name="schoolEmail" placeholder="you@student.swccd.edu" required>
+
+      <div class="mt-lg center">
+        <button type="submit" class="btn btn-primary">Add me to Canvas</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="torn"></div>
+
+<section class="band-blue center">
+  <div class="wrap">
+    <h2>Or just come find us</h2>
+    <p style="max-width:50ch;margin:0 auto 24px;">Instagram is where we post
+      flyers first, email is where you can ask questions directly, and SHPE
+      National is where the scholarships and conferences live.</p>
+    <div class="social-links" style="justify-content:center;">
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" style="border-color:#fff;color:#fff;">Instagram</a>
+      <a href="mailto:YOUR_EMAIL@swccd.edu" style="border-color:#fff;color:#fff;">Email</a>
+      <a href="https://shpe.org" target="_blank" rel="noopener" style="border-color:#fff;color:#fff;">SHPE National</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <strong>SHPE @ Southwestern College</strong>
+      <p class="muted" style="margin:4px 0 0;">Building the next generation of
+        Hispanic engineers, one meeting at a time.</p>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:YOUR_EMAIL@swccd.edu">Email</a>
+      <a href="https://shpe.org" target="_blank" rel="noopener">SHPE National</a>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
