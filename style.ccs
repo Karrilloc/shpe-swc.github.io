@@ -1,0 +1,389 @@
+/* ==========================================================================
+   SHPE @ Southwestern College — style.css
+   Design language: hand assembled zine / scrapbook. Torn paper, washi tape,
+   polaroid frames, doodle underlines. Nothing perfectly aligned on purpose.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;700&display=swap');
+
+:root {
+  /* color tokens */
+  --blue: #2b5a8a;        /* french blue, main */
+  --blue-deep: #1c3d5f;   /* shadows, headers on light */
+  --blue-soft: #cfe0ef;   /* pale wash, backgrounds */
+  --orange: #c2531f;      /* burnt orange, main accent */
+  --orange-deep: #8f3a12; /* pressed / hover */
+  --orange-soft: #f3d9c4; /* tape, highlight blocks */
+  --paper: #f6f0e4;       /* base page color, warm off white */
+  --paper-card: #fffaf0;  /* card surface, slightly lighter */
+  --ink: #262019;         /* body text, warm near black */
+  --ink-soft: #5c5347;    /* secondary text */
+  --line: #d8cbb3;        /* hairlines / borders */
+
+  --display: 'Archivo Black', sans-serif;
+  --body: 'Nunito', sans-serif;
+  --hand: 'Caveat', cursive;
+
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
+  /* subtle paper grain, no external image needed */
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(43,90,138,0.03) 0, transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(194,83,31,0.04) 0, transparent 50%);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--blue-deep); }
+
+h1, h2, h3 {
+  font-family: var(--display);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4em;
+}
+
+h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); color: var(--blue-deep); }
+h3 { font-size: 1.25rem; }
+
+.eyebrow {
+  font-family: var(--hand);
+  font-size: 1.5rem;
+  color: var(--orange-deep);
+  display: inline-block;
+  transform: rotate(-2deg);
+  margin-bottom: 0.2em;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 64px 0;
+}
+
+/* ---------- doodle underline (SVG, hand drawn squiggle) ---------- */
+.doodle-underline {
+  position: relative;
+  display: inline-block;
+}
+.doodle-underline svg {
+  position: absolute;
+  left: -4%;
+  bottom: -10px;
+  width: 108%;
+  height: 14px;
+}
+
+/* ---------- washi tape strip ---------- */
+.tape {
+  position: absolute;
+  width: 90px;
+  height: 30px;
+  background: var(--orange-soft);
+  opacity: 0.85;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+.tape.blue { background: var(--blue-soft); }
+.tape::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0 4px, transparent 4px 8px);
+}
+
+/* ---------- top nav ---------- */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  color: var(--blue-deep);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand .dot {
+  width: 14px; height: 14px;
+  background: var(--orange);
+  border-radius: 50%;
+  display: inline-block;
+}
+nav.main-nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+nav.main-nav a {
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+nav.main-nav a:hover {
+  background: var(--orange-soft);
+  transform: rotate(-1.5deg);
+}
+nav.main-nav a.active {
+  background: var(--blue);
+  color: #fff;
+  transform: rotate(-1.5deg);
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: var(--display);
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  nav.main-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  nav.main-nav.open { display: flex; }
+  .nav-inner { flex-wrap: wrap; }
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-weight: 800;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 999px 8px 999px 8px; /* slightly irregular, hand cut feel */
+  border: 3px solid var(--ink);
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); }
+.btn-primary {
+  background: var(--orange);
+  color: #fff5ea;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn-primary:hover { box-shadow: 6px 6px 0 var(--ink); }
+.btn-outline {
+  background: transparent;
+  color: var(--blue-deep);
+}
+
+/* ---------- hero (cover page) ---------- */
+.hero {
+  position: relative;
+  padding: 70px 0 90px;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+.hero h1 { margin-bottom: 0.25em; }
+.hero p.lede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.polaroid {
+  background: var(--paper-card);
+  padding: 12px 12px 46px;
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(38,32,25,0.18);
+  transform: rotate(-4deg);
+  position: relative;
+}
+.polaroid img { border-radius: 2px; }
+.polaroid .cap {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  right: 14px;
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- card grid ---------- */
+.card {
+  background: var(--paper-card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 5px 5px 0 var(--line);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+@media (max-width: 800px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ---------- officer card ---------- */
+.officer {
+  text-align: center;
+}
+.officer .photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+}
+.officer .photo img { width: 100%; height: 100%; object-fit: cover; }
+.officer .role {
+  font-family: var(--hand);
+  color: var(--orange-deep);
+  font-size: 1.2rem;
+}
+
+/* ---------- gallery ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+.gallery-grid .polaroid { transform: rotate(0deg); }
+.gallery-grid .polaroid:nth-child(3n+1) { transform: rotate(-3deg); }
+.gallery-grid .polaroid:nth-child(3n+2) { transform: rotate(2deg); }
+.gallery-grid .polaroid:nth-child(3n)   { transform: rotate(-1.5deg); }
+.gallery-grid .polaroid:hover { transform: rotate(0deg) scale(1.03); z-index: 2; }
+.gallery-grid img { width: 100%; height: 220px; object-fit: cover; }
+
+/* ---------- section divider, torn paper ---------- */
+.torn {
+  height: 46px;
+  width: 100%;
+  background: var(--paper);
+  clip-path: polygon(0% 20%, 4% 0%, 9% 22%, 14% 4%, 20% 24%, 26% 2%, 32% 20%, 38% 5%, 44% 22%,
+    50% 0%, 56% 22%, 62% 4%, 68% 24%, 74% 2%, 80% 20%, 86% 5%, 92% 22%, 96% 3%, 100% 20%, 100% 100%, 0% 100%);
+}
+
+/* ---------- band sections (alternating color blocks) ---------- */
+.band-blue { background: var(--blue); color: #fff; }
+.band-blue h2 { color: #fff; }
+.band-blue .card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); color: #fff; box-shadow: none; }
+.band-orange { background: var(--orange); color: #fff5ea; }
+.band-orange h2 { color: #fff5ea; }
+
+/* ---------- form (join / canvas signup) ---------- */
+.form-card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+label {
+  display: block;
+  font-weight: 800;
+  margin: 18px 0 6px;
+}
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  font-family: var(--body);
+  font-size: 1rem;
+  background: #fff;
+}
+input:focus { outline: 3px solid var(--blue-soft); outline-offset: 1px; }
+
+/* ---------- footer ---------- */
+footer {
+  border-top: 3px solid var(--ink);
+  padding: 40px 0;
+  margin-top: 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.social-links {
+  display: flex;
+  gap: 14px;
+}
+.social-links a {
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+.social-links a:hover { background: var(--orange-soft); }
+
+/* ---------- reduced motion respect ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- misc utility ---------- */
+.center { text-align: center; }
+.muted { color: var(--ink-soft); }
+.mt-lg { margin-top: 48px; }
+.stack { display: flex; flex-direction: column; gap: 8px; }
