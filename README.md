@@ -1,10 +1,13 @@
-# SHPE @ Southwestern College — website
+[README.md](https://github.com/user-attachments/files/31130768/README.md)# SHPE @ Southwestern College  website
 
+
+Quick Description
 Six pages: Home, About, Officers, Events, Gallery, Join. Scrapbook style,
 French blue + burnt orange, built with plain HTML/CSS/JS so it's free to
 host and easy for future webmasters to edit without knowing a framework.
 
-## Get it live on GitHub Pages
+## How to Get it live on GitHub Pages
+-The repo for the 25-26 chapter is already shared to the shpeswc email, if you want to use my template and import new info follow the steps below:
 
 1. Go to github.com and create a new repository. Name it exactly
    `YOUR-USERNAME.github.io` if you want it at the root of your GitHub
@@ -17,7 +20,7 @@ host and easy for future webmasters to edit without knowing a framework.
    branch and `/ (root)` folder, then save.
 4. Give it a minute, then your site is live at the URL GitHub shows you.
 
-## What you still need to fill in
+## How To Edit pics/names/info/etc.
 
 - **Photos:** drop real images into the `images/` folder, matching the file
   names already referenced in the HTML (`cover-photo.jpg`, `officer-1.jpg`
@@ -36,14 +39,16 @@ host and easy for future webmasters to edit without knowing a framework.
   Google Calendar for the club, share it with officers as editors so they
   can add events straight there, then go to Settings > Integrate calendar >
   copy the embed code and swap the src in.
-- **Canvas sign up form:** the `join.html` page has a form ready to go, but
+- **Canvas sign up form:**
+-NOTE: I already provided google form for 25-26 chapter that is linked to the shpeswc email, if you want to replace it follow the steps below.
+- the `join.html` page has a form ready to go, but
   it needs an endpoint to actually send submissions somewhere. Easiest
   option is Google Forms (free, exports straight to a spreadsheet) —
   create one with First Name / Last Name / School Email fields, then either
   swap the whole form block for the Google Form's embed iframe, or just
   link the "Add me to Canvas" button straight to the Google Form URL.
   There are notes in the HTML comments right above the form explaining
-  both options.
+  both options. 
 
 ## Folder structure
 
@@ -63,4 +68,3 @@ shpe-website/
 Everything shares the same `css/style.css`, so if you want to tweak a
 color, font, or spacing sitewide, that's the one file to touch. The color
 variables are all at the very top of the file under `:root`.
-
