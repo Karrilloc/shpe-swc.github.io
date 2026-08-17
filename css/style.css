@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    SHPE @ Southwestern College — style.css
    Design language: hand assembled zine / scrapbook. Torn paper, washi tape,
@@ -299,7 +300,17 @@ nav.main-nav a.active {
   font-size: 1.2rem;
 }
 
-/* ---------- gallery ---------- */
+/* ---------- placeholder officer photo ---------- */
+.officer .photo.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hand);
+  font-size: 1.1rem;
+  color: var(--blue-deep);
+  text-align: center;
+  padding: 10px;
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
