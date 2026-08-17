@@ -6,7 +6,7 @@ Six pages: Home, About, Officers, Events, Gallery, Join. Clean,
 HTML/CSS/JS so it's free to host and easy for future webmasters to edit
 without knowing a framework.
 
-## Get it live on GitHub Pages/walk-thru for domain rename
+## How to setup/get it live on GitHub Pages/walk-thru for domain rename
 
 1. Go to github.com and create a new repository (ex. `shpe-swc-website`).
 2. Upload all the files in this folder into that repository (drag and drop
